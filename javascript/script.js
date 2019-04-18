@@ -25,25 +25,32 @@ function renderTableCaption() {
   captionYear.innerText = currentDate.getFullYear();
 }
 
+function generateDay(dayNumber) {
+  let td = document.createElement('td');
+  td.textContent = dayNumber;
+  return td;
+}
+
+function generateEmptyDay() {
+  let td = document.createElement('td');
+  td.classList.add('empty');
+  return td;
+}
 
 function fillMonth() {
   renderTableCaption();
   const totalDaysMonth = lastDayOfTheMonth.getDate();
-  let dayOfTheMonth = 1;
   let tableBody = document.getElementById('table-body');
+  let dayOfTheMonth = 1;
   for (let weekNumber = 0; weekNumber < 6; weekNumber++) {
     let week = document.createElement('tr');
     for (let day = 0; day < 7; day++) {
       if (weekNumber === 0 && day < firstDayOfTheMonth.getDay()) {
-        let td = document.createElement('td');
-        td.classList.add('empty');
-        week.append(td);
+        week.append(generateEmptyDay());
       } else if (dayOfTheMonth > totalDaysMonth) {
         break;
       } else {
-        let td = document.createElement('td');
-        td.textContent = dayOfTheMonth;
-        week.append(td);
+        week.append(generateDay(dayOfTheMonth));
         dayOfTheMonth++;
       }
     }
