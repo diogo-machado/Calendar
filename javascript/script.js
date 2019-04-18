@@ -12,30 +12,9 @@ function myInitCode() {
   fillMonth();
 }
 
-
 const currentDate = new Date();
 const firstDayOfTheMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
 const lastDayOfTheMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
-
-function renderTableCaption() {
-  const monthsOfTheYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  const captionMonth = document.getElementById('month');
-  const captionYear = document.getElementById('year');
-  captionMonth.innerText = monthsOfTheYear[currentDate.getMonth()];
-  captionYear.innerText = currentDate.getFullYear();
-}
-
-function generateDay(dayNumber) {
-  let td = document.createElement('td');
-  td.textContent = dayNumber;
-  return td;
-}
-
-function generateEmptyDay() {
-  let td = document.createElement('td');
-  td.classList.add('empty');
-  return td;
-}
 
 function fillMonth() {
   renderTableCaption();
@@ -56,4 +35,24 @@ function fillMonth() {
     }
     tableBody.append(week);
   }
+}
+
+function renderTableCaption() {
+  const monthsOfTheYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  const captionMonth = document.getElementById('month');
+  const captionYear = document.getElementById('year');
+  captionMonth.innerText = monthsOfTheYear[currentDate.getMonth()];
+  captionYear.innerText = currentDate.getFullYear();
+}
+
+function generateDay(dayNumber) {
+  let td = document.createElement('td');
+  td.textContent = dayNumber;
+  return td;
+}
+
+function generateEmptyDay() {
+  let td = document.createElement('td');
+  td.classList.add('empty');
+  return td;
 }
