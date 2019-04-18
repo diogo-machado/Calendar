@@ -11,42 +11,42 @@ if (document.readyState !== 'loading') {
 function myInitCode() {
   fillMonth();
 }
+
+
 const currentDate = new Date();
 const firstDayOfTheMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
 const lastDayOfTheMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
 
-
-const monthsOfTheYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-const daysOfTheWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-const captionMonth = document.getElementById('month');
-const captionYear = document.getElementById('year');
+function renderTableCaption() {
+  const monthsOfTheYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  const captionMonth = document.getElementById('month');
+  const captionYear = document.getElementById('year');
+  captionMonth.innerText = monthsOfTheYear[currentDate.getMonth()];
+  captionYear.innerText = currentDate.getFullYear();
+}
 
 
 function fillMonth() {
-  let captionMonth = document.getElementById('month');
-  let captionYear = document.getElementById('year');
-  captionMonth.innerText = monthsOfTheYear[currentDate.getMonth()];
-  captionYear.innerText = currentDate.getFullYear();
-
+  renderTableCaption();
   const totalDaysMonth = lastDayOfTheMonth.getDate();
-  let renderNum = 1;
+  let dayOfTheMonth = 1;
   let tableBody = document.getElementById('table-body');
-  for (let i = 0; i < 6; i++) {
-    let row = document.createElement('tr');
-    for (let c = 0; c < 7; c++) {
-      if (i === 0 && c < firstDayOfTheMonth.getDay()) {
+  for (let weekNumber = 0; weekNumber < 6; weekNumber++) {
+    let week = document.createElement('tr');
+    for (let day = 0; day < 7; day++) {
+      if (weekNumber === 0 && day < firstDayOfTheMonth.getDay()) {
         let td = document.createElement('td');
         td.classList.add('empty');
-        row.append(td);
-      } else if (renderNum > totalDaysMonth) {
+        week.append(td);
+      } else if (dayOfTheMonth > totalDaysMonth) {
         break;
       } else {
         let td = document.createElement('td');
-        td.textContent = renderNum;
-        row.append(td);
-        renderNum++;
+        td.textContent = dayOfTheMonth;
+        week.append(td);
+        dayOfTheMonth++;
       }
     }
-    tableBody.append(row);
+    tableBody.append(week);
   }
 }
