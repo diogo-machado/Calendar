@@ -1,42 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Calendar</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Calendar</title>
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-  <link rel="stylesheet" href="./css/style.css">
-</head>
+  <body>
+    <table>
+      <caption>
+        <span id="month"></span>
+        <br />
+        <span id="l-arrow"> <</span>
+        <span id="r-arrow">> </span>
+        <br />
+        <span id="year"></span>
+      </caption>
+      <thead>
+        <tr>
+          <th>Sun</th>
+          <th>Mon</th>
+          <th>Tue</th>
+          <th>Wed</th>
+          <th>Thu</th>
+          <th>Fri</th>
+          <th>Sat</th>
+        </tr>
+      </thead>
+      <tbody id="table-body"></tbody>
+    </table>
 
-<body>
-
-  <table>
-    <caption>
-      <span id="month">June</span>
-      <br>
-      <span id="l-arrow">
-        <</span> <span id="r-arrow">>
-      </span>
-      <br>
-      <span id="year">2009</span>
-    </caption>
-    <thead>
-      <tr>
-        <th>Sun</th>
-        <th>Mon</th>
-        <th>Tue</th>
-        <th>Wed</th>
-        <th>Thu</th>
-        <th>Fri</th>
-        <th>Sat</th>
-      </tr>
-    <tbody id="table-body"></tbody>
-    </thead>
-  </table>
-
-  <script src="./javascript/script.js"></script>
-</body>
-
+    <script src="./javascript/script.js"></script>
+  </body>
 </html>

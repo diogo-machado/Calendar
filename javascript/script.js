@@ -23,9 +23,10 @@ const captionYear = document.getElementById('year');
 
 
 function fillMonth() {
-
   let captionMonth = document.getElementById('month');
   let captionYear = document.getElementById('year');
+  captionMonth.innerText = monthsOfTheYear[currentDate.getMonth()];
+  captionYear.innerText = currentDate.getFullYear();
 
   const totalDaysMonth = lastDayOfTheMonth.getDate();
   let renderNum = 1;
@@ -33,7 +34,7 @@ function fillMonth() {
   for (let i = 0; i < 6; i++) {
     let row = document.createElement('tr');
     for (let c = 0; c < 7; c++) {
-      if (i === 0 && c < currentDate.getDay()) {
+      if (i === 0 && c < firstDayOfTheMonth.getDay()) {
         let td = document.createElement('td');
         td.classList.add('empty');
         row.append(td);
