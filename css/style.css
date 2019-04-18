@@ -19,6 +19,14 @@ table>caption {
   font-family: 'Lato', sans-serif;
 }
 
+table>caption>span#l-arrow {
+  margin-right: auto;
+}
+
+table>caption>span#r-arrow {
+  margin-left: auto;
+}
+
 table>thead {
   color: #020304;
   background-color: #86cceb;
